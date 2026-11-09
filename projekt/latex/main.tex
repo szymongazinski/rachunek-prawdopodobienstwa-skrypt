@@ -12,7 +12,10 @@
 \pagenumbering{roman}
 \hypersetup{pageanchor=true}
 \pdfbookmark[0]{Spis treści}{spis-tresci}
-\tableofcontents
+\begingroup
+  \linespread{0.96}\selectfont
+  \tableofcontents
+\endgroup
 \clearpage
 \pagenumbering{arabic}
 \pagestyle{plain}
@@ -24,5 +27,6 @@
 \input{rozdzialy/04-zmienne-losowe}
 \input{rozdzialy/04-funkcje-niezaleznych}
 \input{rozdzialy/05-rozklady}
+\input{rozdzialy/05-gestosci-dystrybuanty}
 
 \end{document}

@@ -12,6 +12,7 @@ Polecenia Git wykonuj z folderu `projekt/` (lub przez `git -C projekt ...`).
 Nie przenoś ponownie katalogu głównego repozytorium do folderu `projekt/`.
 
 - Przepisuj dostarczone notatki i zdjęcia po polsku do odpowiednich rozdziałów.
+- Pomijaj przypomnienia treści, które są już w skrypcie.
 - Dla `1_A` stosuj nazwy „indykator zbioru A” lub „funkcja charakterystyczna zbioru A”.
 - Zachowuj PL Roman 12 pt, klasyczny skład oraz czarne, klikalne odnośniki.
 - Nie używaj żywej paginy z nazwami rozdziałów. Stosuj `\pagestyle{plain}`:
@@ -61,6 +62,8 @@ Nie przenoś ponownie katalogu głównego repozytorium do folderu `projekt/`.
   Borela--Cantellego. Następnie obejmuje zmienne losowe i układy pi oraz lambda.
   Wykład 5 zaczyna się przed twierdzeniem o funkcjach niezależnych bloków
   zmiennych losowych; dalej obejmuje rozkłady zmiennych losowych i rozkłady dyskretne.
+  Wykład 6 zaczyna się przed kryterium niezależności zmiennych dyskretnych.
+  Dalej obejmuje rozkłady absolutnie ciągłe oraz dystrybuanty.
 - Definicje, przykłady, twierdzenia, fakty, lematy, wnioski i uwagi mają osobne
   liczniki ciągłe przez cały rozdział, resetowane wyłącznie przy `\chapter`.
   Sekcje i podsekcje nie resetują liczników. Numer ma postać `rozdział.numer`,

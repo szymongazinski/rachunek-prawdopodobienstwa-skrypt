@@ -1,0 +1,291 @@
+% Źródła: materialy/2026-11-09/IMG_7102--IMG_7115.jpeg.
+\poczatekwykladu{6}
+
+\begin{fakt}[Niezależność zmiennych dyskretnych]
+\label{fakt:niezaleznosc-zmiennych-dyskretnych}
+Niech $X_1,\ldots,X_N$ będą zmiennymi losowymi o rozkładach dyskretnych.
+Są one niezależne wtedy i tylko wtedy, gdy dla każdego wyboru punktów
+$x_i\in S_{X_i}$, $i=1,\ldots,N$, zachodzi równość
+\[
+  \PP(X_1=x_1,\ldots,X_N=x_N)=\prod_{i=1}^{N}\PP(X_i=x_i).
+\]
+\end{fakt}
+\noindent\emph{Dowód pozostawiono jako ćwiczenie.}
+
+\section{Rozkłady absolutnie ciągłe}
+\label{sec:rozklady-absolutnie-ciagle}
+
+\begin{definicja}
+\label{def:rozklad-absolutnie-ciagly}
+Rozkład $\mu$ na $\R$ nazywamy \emph{absolutnie ciągłym}, jeżeli istnieje
+funkcja borelowska $f\colon\R\to[0,\infty)$ taka, że dla każdego
+$A\in\B(\R)$
+\[
+  \mu(A)=\int_A f(x)\,dx
+        =\int_{\R}\mathbf{1}_A(x)f(x)\,dx.
+\]
+Funkcję $f$ nazywamy \emph{gęstością} rozkładu $\mu$.
+Jeżeli $\mu_X$ jest absolutnie ciągły, mówimy, że zmienna losowa $X$
+ma rozkład absolutnie ciągły. Jego gęstość oznaczamy przez $f_X$.
+\end{definicja}
+
+\begin{fakt}
+Jeżeli $X$ ma rozkład absolutnie ciągły, to $S_X=\varnothing$.
+\end{fakt}
+
+\begin{proof}
+Dla dowolnego $x\in\R$ mamy
+\[
+  \PP(X=x)=\int_{\{x\}} f_X(u)\,du=0,
+\]
+ponieważ singleton $\{x\}$ ma miarę Lebesgue'a równą zeru.
+\end{proof}
+
+\begin{uwaga}[Gęstość a rozkład]
+\label{uw:gestosc-a-rozklad}
+\begin{enumerate}
+  \item Gęstość jest wyznaczona z dokładnością do zbioru miary
+    Lebesgue'a zero. Dokładniej, dla nieujemnej funkcji borelowskiej $f$
+    zachodzi równoważność
+    \[
+      f=f_X\ \text{prawie wszędzie}
+      \quad\Longleftrightarrow\quad
+      \mu_X(A)=\int_A f(x)\,dx
+      \quad\text{dla każdego }A\in\B(\R).
+    \]
+  \item Każda funkcja borelowska $f\colon\R\to[0,\infty)$, dla której
+    $\int_{\R}f(x)\,dx=1$, wyznacza rozkład absolutnie ciągły przez
+    wzór $\mu(A)=\int_A f(x)\,dx$ dla $A\in\B(\R)$.
+\end{enumerate}
+\end{uwaga}
+
+\subsection{Przykłady rozkładów absolutnie ciągłych}
+
+\begin{przyklad}[Rozkład jednostajny]
+\label{przykl:rozklad-jednostajny}
+Dla $a<b$ rozkład jednostajny $U([a,b])$ ma gęstość
+\[
+  f_X(x)=\frac{1}{b-a}\,\mathbf{1}_{[a,b]}(x).
+\]
+\end{przyklad}
+
+\begin{przyklad}[Rozkład wykładniczy]
+\label{przykl:rozklad-wykladniczy}
+Dla $\lambda>0$ rozkład wykładniczy $\operatorname{Exp}(\lambda)$
+ma gęstość
+\[
+  f_X(x)=\lambda e^{-\lambda x}\mathbf{1}_{(0,\infty)}(x).
+\]
+Istotnie, całka z tej funkcji wynosi
+\[
+  \int_{\R} f_X(x)\,dx
+  =\int_0^\infty\lambda e^{-\lambda x}\,dx
+  =\lim_{b\to\infty}\bigl(1-e^{-\lambda b}\bigr)=1.
+\]
+\end{przyklad}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=12cm]{gestosci-jednostajna-wykladnicza.pdf}
+  \caption{Gęstość rozkładu jednostajnego z przykładu~\ref{przykl:rozklad-jednostajny}
+    (z lewej) i wykładniczego z przykładu~\ref{przykl:rozklad-wykladniczy}
+    (z prawej).}
+  \label{fig:gestosci-jednostajna-wykladnicza}
+\end{figure}
+
+\begin{przyklad}[Rozkład normalny]
+\label{przykl:rozklad-normalny}
+Rozkład Gaussa $N(m,\sigma^2)$, gdzie $m\in\R$ i $\sigma>0$,
+ma gęstość
+\[
+  f_X(x)=\frac{1}{\sigma\sqrt{2\pi}}
+  \exp\!\left(-\frac{(x-m)^2}{2\sigma^2}\right),
+  \qquad x\in\R.
+\]
+Standardowy rozkład normalny $N(0,1)$ ma gęstość
+\[
+  f_X(x)=\frac{1}{\sqrt{2\pi}}e^{-x^2/2},
+  \qquad x\in\R.
+\]
+\end{przyklad}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=12cm]{gestosci-normalne.pdf}
+  \caption{Gęstości normalne z przykładu~\ref{przykl:rozklad-normalny}.
+    Po lewej $N(0,1)$, po prawej dwie gęstości o wspólnym $m$.
+    Węższa krzywa odpowiada mniejszemu $\sigma$.}
+  \label{fig:gestosci-normalne}
+\end{figure}
+
+\begin{przyklad}[Rozkład gamma]
+\label{przykl:rozklad-gamma}
+Dla $\alpha>0$ i $\beta>0$ rozkład gamma ma gęstość
+\[
+  f_X(x)=
+  \begin{cases}
+    \dfrac{\beta^\alpha}{\Gamma(\alpha)}\,x^{\alpha-1}e^{-\beta x},
+      & x>0,\\[5pt]
+    0, & x\leq 0.
+  \end{cases}
+\]
+Funkcja gamma jest dana wzorem
+\[
+  \Gamma(\alpha)=\int_0^\infty x^{\alpha-1}e^{-x}\,dx,
+  \qquad \alpha>0.
+\]
+Dla $n=0,1,2,\ldots$ mamy $\Gamma(n+1)=n!$.
+Przy $\alpha=1$ otrzymujemy gęstość rozkładu wykładniczego
+$\operatorname{Exp}(\beta)$.
+\end{przyklad}
+
+\begin{przyklad}[Czas oczekiwania na tramwaj]
+\label{przykl:oczekiwanie-na-tramwaj}
+Niech $X$ oznacza czas oczekiwania na tramwaj w minutach i niech
+$X\sim\operatorname{Exp}(\lambda)$, gdzie $\lambda=1/15$.
+\begin{enumerate}[label=\alph*)]
+  \item Prawdopodobieństwo oczekiwania dokładnie $10$ minut wynosi
+    $\PP(X=10)=0$, ponieważ rozkład jest absolutnie ciągły.
+  \item Prawdopodobieństwo oczekiwania dłużej niż $10$ minut wynosi
+    \[
+      \PP(X>10)=\int_{10}^{\infty}\lambda e^{-\lambda x}\,dx
+      =e^{-10\lambda}=e^{-2/3}.
+    \]
+  \item Prawdopodobieństwo oczekiwania od $10$ do $20$ minut wynosi
+    \[
+      \PP(10\leq X\leq 20)=\int_{10}^{20}\lambda e^{-\lambda x}\,dx
+      =e^{-10\lambda}-e^{-20\lambda}=e^{-2/3}-e^{-4/3}.
+    \]
+\end{enumerate}
+\end{przyklad}
+
+\section{Dystrybuanta}
+\label{sec:dystrybuanta}
+
+\begin{definicja}
+\label{def:dystrybuanta}
+\emph{Dystrybuantą} rozkładu $\mu_X$ rzeczywistej zmiennej losowej $X$
+nazywamy funkcję $F_X\colon\R\to[0,1]$ daną wzorem
+\[
+  F_X(t)=\PP(X\leq t)=\mu_X((-\infty,t]),\qquad t\in\R.
+\]
+\end{definicja}
+
+\begin{przyklad}[Dystrybuanta rozkładu wykładniczego]
+\label{przykl:dystrybuanta-wykladnicza}
+Niech $X\sim\operatorname{Exp}(\lambda)$, gdzie $\lambda>0$.
+Dla $t\leq 0$ mamy $F_X(t)=0$. Dla $t>0$ otrzymujemy
+\[
+  F_X(t)=\int_0^t\lambda e^{-\lambda x}\,dx
+        =\bigl[-e^{-\lambda x}\bigr]_{0}^{t}
+        =1-e^{-\lambda t}.
+\]
+\end{przyklad}
+
+\begin{przyklad}[Dystrybuanta rozkładu dwumianowego]
+\label{przykl:dystrybuanta-dwumianowa}
+Niech $X\sim B(2,\tfrac12)$. Z wzoru z przykładu~\ref{przykl:rozklad-bernoulliego}
+otrzymujemy $\PP(X=0)=\tfrac14$, $\PP(X=1)=\tfrac12$
+oraz $\PP(X=2)=\tfrac14$. Zatem
+\[
+  F_X(t)=
+  \begin{cases}
+    0, & t<0,\\
+    \tfrac14, & 0\leq t<1,\\
+    \tfrac34, & 1\leq t<2,\\
+    1, & t\geq 2.
+  \end{cases}
+\]
+\end{przyklad}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=12.5cm]{dystrybuanty-wykladnicza-dwumianowa.pdf}
+  \caption{Dystrybuanty z przykładów~\ref{przykl:dystrybuanta-wykladnicza}
+    i~\ref{przykl:dystrybuanta-dwumianowa}.
+    Na wykresie rozkładu wykładniczego przyjęto $\lambda=1$.}
+  \label{fig:dystrybuanty-wykladnicza-dwumianowa}
+\end{figure}
+
+\begin{twierdzenie}[Własności dystrybuanty]
+\label{tw:wlasnosci-dystrybuanty}
+Niech $F_X$ będzie dystrybuantą zmiennej losowej $X$.
+\begin{enumerate}[label=(\roman*)]
+  \item Funkcja $F_X$ jest niemalejąca.
+  \item Zachodzą równości
+    \[
+      \lim_{t\to-\infty}F_X(t)=0,\qquad
+      \lim_{t\to\infty}F_X(t)=1.
+    \]
+  \item Funkcja $F_X$ jest prawostronnie ciągła.
+  \item Dla każdego $t_0\in\R$ istnieje granica lewostronna
+    \[
+      F_X(t_0^-)=\lim_{t\uparrow t_0}F_X(t)=\PP(X<t_0).
+    \]
+  \item Funkcja $F_X$ jest nieciągła w $t_0$ wtedy i tylko wtedy, gdy
+    $\PP(X=t_0)>0$. Ponadto
+    \[
+      \PP(X=t_0)=F_X(t_0)-F_X(t_0^-).
+    \]
+\end{enumerate}
+\end{twierdzenie}
+
+\begin{proof}
+\begin{enumerate}[label=(\roman*)]
+  \item Dla $t_1\leq t_2$ mamy $(-\infty,t_1]\subseteq(-\infty,t_2]$,
+    więc z monotoniczności miary wynika $F_X(t_1)\leq F_X(t_2)$.
+  \item Z monotoniczności $F_X$ wystarczy rozpatrzyć wartości w punktach
+    $-n$ oraz $n$. Korzystając z ciągłości miary $\mu_X$, otrzymujemy
+    \begin{align*}
+      \lim_{n\to\infty}F_X(-n)
+        &=\mu_X\!\left(\bigcap_{n=1}^\infty(-\infty,-n]\right)
+          =\mu_X(\varnothing)=0,\\
+      \lim_{n\to\infty}F_X(n)
+        &=\mu_X\!\left(\bigcup_{n=1}^\infty(-\infty,n]\right)
+          =\mu_X(\R)=1.
+    \end{align*}
+  \item Jeżeli $t_n\downarrow t_0$, to przedziały $(-\infty,t_n]$
+    maleją do $(-\infty,t_0]$. Zatem
+    \[
+      \lim_{n\to\infty} F_X(t_n)
+        =\mu_X\!\left(\bigcap_{n=1}^{\infty}(-\infty,t_n]\right)
+        =F_X(t_0).
+    \]
+  \item Jeżeli $t_n\uparrow t_0$ i $t_n<t_0$, to przedziały
+    $(-\infty,t_n]$ rosną do $(-\infty,t_0)$. Stąd
+    \[
+      F_X(t_0^-)=\lim_{n\to\infty}F_X(t_n)
+        =\mu_X((-\infty,t_0))=\PP(X<t_0).
+    \]
+  \item Odejmując prawdopodobieństwa, dostajemy
+    \[
+      \PP(X=t_0)=\PP(X\leq t_0)-\PP(X<t_0)=F_X(t_0)-F_X(t_0^-).
+    \]
+    Z prawostronnej ciągłości wynika, że nieciągłość zachodzi dokładnie
+    wtedy, gdy ta różnica jest dodatnia. \qedhere
+\end{enumerate}
+\end{proof}
+
+\begin{definicja}
+\label{def:rozklad-ciagly}
+Rozkład $\mu_X$ nazywamy \emph{ciągłym}, gdy jego dystrybuanta $F_X$
+jest ciągła.
+\end{definicja}
+
+Przykład ciągłej dystrybuanty z odcinkami stałości przedstawia
+rysunek~\ref{fig:dystrybuanta-cantora}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=8.5cm]{dystrybuanta-cantora.pdf}
+  \caption{Piąte przybliżenie dystrybuanty Cantora. W granicy otrzymujemy
+    funkcję ciągłą, stałą na każdym z przedziałów usuwanych przy budowie
+    zbioru Cantora.}
+  \label{fig:dystrybuanta-cantora}
+\end{figure}
+
+\begin{uwaga}
+Każda funkcja niemalejąca, prawostronnie ciągła i o granicach $0$
+w $-\infty$ oraz $1$ w $+\infty$ jest dystrybuantą pewnego rozkładu.
+Są to warunki \textup{(i)--(iii)} twierdzenia~\ref{tw:wlasnosci-dystrybuanty}.
+\end{uwaga}

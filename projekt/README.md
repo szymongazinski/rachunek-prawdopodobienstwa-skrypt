@@ -74,6 +74,8 @@ po lemacie Borela--Cantellego; dalej obejmuje zmienne losowe i układy pi oraz l
 Wykład 5 zaczyna się od twierdzenia o funkcjach niezależnych bloków zmiennych
 losowych i jego dowodu. Następnie obejmuje rozkłady zmiennych losowych
 oraz przykłady rozkładów dyskretnych.
+Wykład 6 zaczyna się od kryterium niezależności zmiennych dyskretnych.
+Dalej omawia rozkłady absolutnie ciągłe oraz dystrybuanty.
 
 ## Formatowanie
 

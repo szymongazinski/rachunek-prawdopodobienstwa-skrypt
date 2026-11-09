@@ -1,0 +1,28 @@
+\documentclass[tikz,border=8pt]{standalone}
+\usepackage[OT4,plmath]{polski}
+\usepackage{amsmath}
+\begin{document}
+\begin{tikzpicture}[x=1.55cm,y=2.35cm,>=stealth,font=\large]
+  \draw[->] (-.65,0)--(3.05,0) node[right] {$x$};
+  \draw[->] (0,-.12)--(0,1.15) node[above] {$f_X(x)$};
+  \draw[densely dotted] (0,.625)--(.4,.625);
+  \node[left] at (0,.625) {$\frac{1}{b-a}$};
+  \draw[very thick] (-.62,0)--(.4,0) (2,0)--(2.86,0);
+  \draw[very thick] (.4,.625)--(2,.625);
+  \foreach \x/\name in {.4/a,2/b} {
+    \draw[fill=white,thick] (\x,0) circle (1.7pt);
+    \fill (\x,.625) circle (1.7pt);
+    \node[below] at (\x,-.04) {$\name$};
+  }
+  \begin{scope}[xshift=6.8cm]
+    \draw[->] (-.65,0)--(3.05,0) node[right] {$x$};
+    \draw[->] (0,-.12)--(0,1.15) node[above] {$f_X(x)$};
+    \node[below right] at (0,0) {$0$};
+    \node[left] at (0,1) {$\lambda$};
+    \draw[very thick] (-.62,0)--(0,0);
+    \draw[very thick,domain=0:2.86,samples=64] plot (\x,{exp(-1.4*\x)});
+    \fill (0,0) circle (1.7pt);
+    \draw[fill=white,thick] (0,1) circle (1.7pt);
+  \end{scope}
+\end{tikzpicture}
+\end{document}

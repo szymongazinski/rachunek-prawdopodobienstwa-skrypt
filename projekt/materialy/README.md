@@ -192,6 +192,30 @@ Uwagi do transkrypcji:
 - Prostokąt, schemat rozkładu i trzy wykresy odtworzono jako osobne
   edytowalne źródła LaTeX w `grafika/`.
 
+## 2026-11-09: wykład 6
+
+| Zdjęcie | Treść |
+| --- | --- |
+| `IMG_7102.jpeg` | Kryterium niezależności zmiennych dyskretnych. |
+| `IMG_7103.jpeg` | Dowód kryterium zadany jako ćwiczenie, definicja rozkładu absolutnie ciągłego. |
+| `IMG_7104.jpeg` | Oznaczenie gęstości, brak atomów i dowód. |
+| `IMG_7105.jpeg` | Jednoznaczność gęstości prawie wszędzie, warunek normalizacji. |
+| `IMG_7106.jpeg` | Gęstości rozkładów jednostajnego i wykładniczego. |
+| `IMG_7107.jpeg` | Rozkład normalny oraz standardowy rozkład normalny. |
+| `IMG_7108.jpeg` | Rozkład gamma, funkcja gamma i przypadek wykładniczy. |
+| `IMG_7109.jpeg` | Czas oczekiwania na tramwaj. |
+| `IMG_7110.jpeg` | Definicja dystrybuanty i przykład wykładniczy. |
+| `IMG_7111.jpeg` | Wykres dystrybuanty wykładniczej i przykład dwumianowy. |
+| `IMG_7112.jpeg` | Pięć własności dystrybuanty. |
+| `IMG_7114.jpeg`, `IMG_7115.jpeg` | Dowody własności dystrybuanty. |
+| `IMG_7113.jpeg` | Rozkład ciągły, szkic schodów Cantora i warunki charakteryzujące dystrybuantę. |
+
+W skrypcie pominięto przypomnienie definicji rozkładu zmiennej losowej
+i ponowny zapis definicji zbioru $S_X$. Wykład zaczyna się od nowego
+kryterium niezależności. W przykładzie dwumianowym obliczono masy
+punktowe dla parametrów z tablicy. Szkic z ostatniej tablicy odtworzono
+jako piąte przybliżenie dystrybuanty Cantora.
+
 ## Granice wykładów
 
 Wykład 1 obejmuje dotychczasowy materiał i stwierdzenia wszystkich siedmiu
@@ -213,3 +237,6 @@ niezależności zmiennych i układach pi oraz lambda.
 Wykład 5 zaczyna się od twierdzenia o funkcjach niezależnych bloków
 zmiennych losowych, po sposobie stosowania twierdzenia pi-lambda.
 Obejmuje też rozkłady zmiennych losowych, rozkłady dyskretne i ich przykłady.
+
+Wykład 6 zaczyna się od kryterium niezależności zmiennych dyskretnych.
+Dalej obejmuje rozkłady absolutnie ciągłe, dystrybuanty i ich własności.

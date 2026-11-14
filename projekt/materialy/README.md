@@ -216,6 +216,22 @@ kryterium niezależności. W przykładzie dwumianowym obliczono masy
 punktowe dla parametrów z tablicy. Szkic z ostatniej tablicy odtworzono
 jako piąte przybliżenie dystrybuanty Cantora.
 
+## 2026-11-14: wykład 7
+
+| Plik | Zawartość |
+| --- | --- |
+| `zrodlo-1.zip` | Notatki pomocnicze. Zawierają oba dowody, przykład z pięcioma szóstkami oraz dwa obliczenia średniej rozkładu dwumianowego. |
+| `zrodlo-2.zip` | Główne źródło. Zdjęcia w kolejności materiału to 2, 1, 3, 6, 5 i 4 według kolejności plików w archiwum. |
+| `zrodlo-3.pdf` | Uzupełnienie przykładów i wzorów o wartości oczekiwanej. |
+
+Oba dowody zapisano według źródła 2 i porównano ze źródłem 1.
+Przykład z pięcioma szóstkami i obie metody dla rozkładu dwumianowego
+uzupełniono na podstawie źródeł 1 i 3.
+W pierwszym przykładzie zgrupowano wypłaty w jednym wierszu tabeli.
+Dla twierdzenia Lebesgue'a użyto nazwy „zbieżność zdominowana”, zgodnej
+z założeniem o całkowalnej zmiennej dominującej. Przy całkowaniu względem
+rozkładu doprecyzowano warunki istnienia całki.
+
 ## Granice wykładów
 
 Wykład 1 obejmuje dotychczasowy materiał i stwierdzenia wszystkich siedmiu
@@ -240,3 +256,7 @@ Obejmuje też rozkłady zmiennych losowych, rozkłady dyskretne i ich przykłady
 
 Wykład 6 zaczyna się od kryterium niezależności zmiennych dyskretnych.
 Dalej obejmuje rozkłady absolutnie ciągłe, dystrybuanty i ich własności.
+
+Wykład 7 zaczyna się od twierdzenia o jednoznaczności rozkładu
+wyznaczonego przez dystrybuantę. Obejmuje również związek dystrybuanty
+z gęstością oraz wartość oczekiwaną.

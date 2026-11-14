@@ -1,0 +1,178 @@
+% Wartość oczekiwana według źródła 2, z przykładami ze źródeł 1 i 3.
+\chapter{Parametry rozkładów}
+\label{chap:parametry-rozkladow}
+
+\section{Wartość oczekiwana}
+\label{sec:wartosc-oczekiwana}
+
+\begin{przyklad}[Gra z kostką]
+Rzucamy uczciwą kostką. Wynik finansowy gracza zależy od liczby oczek
+zgodnie z tabelą.
+\begin{center}
+  \begin{tabular}{lrrrrrr}
+    \hline
+    Liczba oczek & $1$ & $2$ & $3$ & $4$ & $5$ & $6$\\
+    \hline
+    Wynik w zł & $5$ & $-4$ & $-8$ & $7$ & $2$ & $-6$\\
+    \hline
+  \end{tabular}
+\end{center}
+Każdy wynik rzutu ma prawdopodobieństwo $1/6$, więc średni wynik jednej gry
+to $(5-4-8+7+2-6)/6=-2/3$ zł. Średni łączny wynik $n$ takich gier wynosi
+\[
+  \frac{n}{6}(5-4-8+7+2-6)=-\frac{2n}{3}\ \text{zł}.
+\]
+\end{przyklad}
+
+\begin{przyklad}[Pięć szóstek]
+Udział w grze kosztuje $20$ zł. Rzucamy niezależnie pięć razy uczciwą
+kostką i otrzymujemy nagrodę $150\,000$ zł, jeżeli we wszystkich rzutach
+wypadnie szóstka. Prawdopodobieństwo otrzymania nagrody wynosi $1/6^5$,
+więc średni wynik po uwzględnieniu opłaty to
+\[
+  150\,000\cdot\frac{1}{6^5}-20=-\frac{115}{162}\approx -0{,}71\ \text{zł}.
+\]
+\end{przyklad}
+
+Ogólniej, jeżeli wynik gry $X$ przyjmuje wartości w co najwyżej
+przeliczalnym zbiorze $\{x_k:k\in T\}$, to średnią obliczamy, ważąc
+każdy z różnych wyników jego prawdopodobieństwem. Oznaczmy
+$A_k=\{\omega:X(\omega)=x_k\}$. Jeżeli $T$ jest skończony lub suma
+jest bezwzględnie zbieżna, mamy
+\[
+  \sum_{k\in T} x_k\PP(X=x_k)
+  =\sum_{k\in T}x_k\PP(A_k)
+  =\int_\Omega X\,d\PP.
+\]
+
+\begin{definicja}
+\label{def:wartosc-oczekiwana}
+Niech $X$ będzie zmienną losową na przestrzeni probabilistycznej
+$(\Omega,\F,\PP)$. Mówimy, że $X$ ma skończoną \emph{wartość oczekiwaną},
+jeżeli $\int_\Omega|X|\,d\PP<\infty$. Jej wartość oczekiwaną definiujemy wzorem
+\[
+  \mathbb{E}X=\int_\Omega X\,d\PP.
+\]
+\end{definicja}
+
+\begin{uwaga}[Część dodatnia i ujemna]
+Niech $X^+=\max\{X,0\}$ i $X^-=\max\{-X,0\}$. Wtedy
+$X=X^+-X^-$ i $|X|=X^++X^-$. Warunek całkowalności $X$ jest równoważny
+skończoności obu całek $\int_\Omega X^+\,d\PP$ i $\int_\Omega X^-\,d\PP$,
+ponieważ
+\[
+  \int_\Omega |X|\,d\PP
+    =\int_\Omega X^+\,d\PP+\int_\Omega X^-\,d\PP.
+\]
+Jeżeli obie całki są skończone, to
+\[
+  \mathbb{E}X=\int_\Omega X^+\,d\PP-\int_\Omega X^-\,d\PP.
+\]
+Dla $X\geq0$ skończoność wartości oczekiwanej oznacza po prostu
+$\int_\Omega X\,d\PP<\infty$. Dla zmiennych nieujemnych używamy również
+zapisu $\mathbb{E}X$ dla całki o wartości $+\infty$.
+\end{uwaga}
+
+\subsection{Własności wartości oczekiwanej}
+
+\begin{twierdzenie}
+\label{tw:wlasnosci-wartosci-oczekiwanej}
+\begin{enumerate}
+  \item \emph{Nieujemność.} Jeżeli $X\geq0$, to $\mathbb{E}X\geq0$.
+  \item Jeżeli $X$ jest całkowalna, to $|\mathbb{E}X|\leq\mathbb{E}|X|$.
+  \item \emph{Liniowość.} Jeżeli $X$ i $Y$ są całkowalne, to dla dowolnych
+    $a,b\in\R$ zmienna $aX+bY$ jest całkowalna oraz
+    \[
+      \mathbb{E}(aX+bY)=a\mathbb{E}X+b\mathbb{E}Y.
+    \]
+  \item \emph{Lemat Fatou.} Dla ciągu nieujemnych zmiennych losowych
+    $(X_n)$ zachodzi
+    \[
+      \mathbb{E}\!\left(\liminf_{n\to\infty}X_n\right)
+        \leq\liminf_{n\to\infty}\mathbb{E}X_n.
+    \]
+  \item \emph{Twierdzenie o zbieżności monotonicznej.}
+    Jeżeli $0\leq X_1\leq X_2\leq\cdots$ i $X_n\to X$ prawie na pewno,
+    to
+    \[
+      \lim_{n\to\infty}\mathbb{E}X_n=\mathbb{E}X.
+    \]
+    W punktach~4 i~5 całki zmiennych nieujemnych mogą być równe $+\infty$.
+  \item \emph{Twierdzenie Lebesgue'a o zbieżności zdominowanej.}
+    Jeżeli $X_n\to X$ prawie na pewno i istnieje nieujemna zmienna
+    całkowalna $Y$ taka, że $|X_n|\leq Y$ prawie na pewno dla każdego $n$,
+    to $X$ jest całkowalna oraz
+    \[
+      \lim_{n\to\infty}\mathbb{E}X_n=\mathbb{E}X.
+    \]
+\end{enumerate}
+\end{twierdzenie}
+
+Zapis $X_n\to X$ prawie na pewno oznacza
+\[
+  \PP\bigl(\{\omega:\lim_{n\to\infty}X_n(\omega)=X(\omega)\}\bigr)=1.
+\]
+
+\begin{uwaga}
+Dla całkowalnych $X_1,\ldots,X_n$ z liniowości wynika
+\[
+  \mathbb{E}(X_1+\cdots+X_n)=\mathbb{E}X_1+\cdots+\mathbb{E}X_n.
+\]
+Ta własność obowiązuje również dla zmiennych zależnych.
+\end{uwaga}
+
+\begin{przyklad}[Wartość oczekiwana rozkładu dwumianowego]
+\label{przykl:wartosc-oczekiwana-dwumianowa}
+Niech $X\sim B(n,p)$, gdzie $n\geq1$ i $p\in[0,1]$.
+Korzystamy z tożsamości $k\binom{n}{k}=n\binom{n-1}{k-1}$
+dla $1\leq k\leq n$ i podstawiamy $j=k-1$ w ostatniej sumie.
+\begin{align*}
+  \mathbb{E}X
+    &=\sum_{k=0}^n k\,\PP(X=k)
+      =\sum_{k=1}^n k\binom{n}{k}p^k(1-p)^{n-k}\\
+    &=np\sum_{j=0}^{n-1}\binom{n-1}{j}p^j(1-p)^{n-1-j}
+      =np\bigl(p+(1-p)\bigr)^{n-1}=np.
+\end{align*}
+Ten sam wynik uzyskamy, przedstawiając liczbę sukcesów jako sumę
+$X_1+\cdots+X_n$, gdzie $X_i$ jest indykatorem sukcesu w $i$-tej próbie.
+Dla niezależnych prób z prawdopodobieństwem sukcesu $p$ suma ma rozkład
+$B(n,p)$, a $\mathbb{E}X_i=1\cdot p+0\cdot(1-p)=p$.
+Stąd $\mathbb{E}X=\sum_{i=1}^n\mathbb{E}X_i=np$.
+\end{przyklad}
+
+\subsection{Obliczanie wartości oczekiwanej z rozkładu}
+
+\begin{twierdzenie}[Całkowanie względem rozkładu]
+\label{tw:calkowanie-wzgledem-rozkladu}
+Niech $\mu_X$ będzie rozkładem rzeczywistej zmiennej losowej $X$,
+a $f\colon\R\to\R$ funkcją borelowską. Jeżeli $f\geq 0$ albo $f(X)$
+jest całkowalna, to
+\[
+  \mathbb{E}f(X)=\int_{\R}f(x)\,d\mu_X(x)
+               =\int_{\R}f(x)\,\mu_X(dx).
+\]
+W szczególności $f(X)$ jest całkowalna dokładnie wtedy, gdy
+$\int_{\R}|f(x)|\,\mu_X(dx)<\infty$.
+\end{twierdzenie}
+
+\begin{wniosek}[Rozkład dyskretny]
+Jeżeli $X$ ma rozkład dyskretny o masach $p_k=\PP(X=x_k)$, $k\in T$,
+to dla borelowskiej $f$ spełniającej założenia
+twierdzenia~\ref{tw:calkowanie-wzgledem-rozkladu}
+\[
+  \mathbb{E}f(X)=\sum_{k\in T} f(x_k)p_k.
+\]
+W szczególności dla całkowalnej $X$ mamy
+$\mathbb{E}X=\sum_{k\in T} x_kp_k$.
+\end{wniosek}
+
+\begin{wniosek}[Rozkład absolutnie ciągły]
+Jeżeli $X$ ma rozkład absolutnie ciągły o gęstości $f_X$, to dla
+borelowskiej $h$ spełniającej założenia
+twierdzenia~\ref{tw:calkowanie-wzgledem-rozkladu}
+\[
+  \mathbb{E}h(X)=\int_{\R}h(x)f_X(x)\,dx.
+\]
+W szczególności dla całkowalnej $X$ mamy
+$\mathbb{E}X=\int_{\R}x f_X(x)\,dx$.
+\end{wniosek}

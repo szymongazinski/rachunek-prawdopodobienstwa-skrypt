@@ -1,0 +1,88 @@
+% Dowody według źródła 2, ze sprawdzeniem w źródle 1.
+\poczatekwykladu{7}
+
+\subsection{Jednoznaczność rozkładu i związek z gęstością}
+
+\begin{twierdzenie}[Dystrybuanta wyznacza rozkład]
+\label{tw:dystrybuanta-wyznacza-rozklad}
+Jeżeli rozkłady $\mu$ i $\nu$ na $\R$ mają tę samą dystrybuantę,
+to $\mu(A)=\nu(A)$ dla każdego $A\in\B(\R)$.
+\end{twierdzenie}
+
+\begin{proof}
+Załóżmy, że $F_\mu(t)=F_\nu(t)$ dla każdego $t\in\R$. Zdefiniujmy
+\[
+  \mathcal A=\{A\in\B(\R):\mu(A)=\nu(A)\},\qquad
+  \mathcal P=\{(-\infty,t]:t\in\R\}.
+\]
+Rodzina $\mathcal P$ jest $\pi$-układem, ponieważ przecięcie dwóch
+takich półprostych ma prawy koniec w mniejszym z ich prawych końców.
+Generuje ona $\B(\R)$, gdyż z półprostych można otrzymać przedziały
+$(a,b]$ przez różnicę, a stąd przedziały otwarte przez przeliczalne sumy.
+Ponadto $\mathcal P\subseteq\mathcal A$, gdyż dla każdego $t\in\R$
+\[
+  \mu((-\infty,t])=F_\mu(t)=F_\nu(t)=\nu((-\infty,t]).
+\]
+
+Sprawdzamy, że $\mathcal A$ jest $\lambda$-układem.
+\begin{enumerate}
+  \item Mamy $\R\in\mathcal A$, ponieważ $\mu(\R)=\nu(\R)=1$.
+  \item Jeżeli $A,B\in\mathcal A$ i $A\subseteq B$, to
+    \[
+      \mu(B\setminus A)=\mu(B)-\mu(A)=\nu(B)-\nu(A)=\nu(B\setminus A),
+    \]
+    zatem $B\setminus A\in\mathcal A$.
+  \item Jeżeli $A_n\in\mathcal A$ oraz $A_n\subseteq A_{n+1}$
+    dla każdego $n$, to z ciągłości miar od dołu wynika
+    \[
+      \mu\!\left(\bigcup_{n=1}^\infty A_n\right)
+      =\lim_{n\to\infty}\mu(A_n)
+      =\lim_{n\to\infty}\nu(A_n)
+      =\nu\!\left(\bigcup_{n=1}^\infty A_n\right).
+    \]
+    Stąd $\bigcup_{n=1}^\infty A_n\in\mathcal A$.
+\end{enumerate}
+Twierdzenie o układach $\pi$ i $\lambda$ (twierdzenie~\ref{tw:pi-lambda})
+daje $\B(\R)=\sigma(\mathcal P)\subseteq\mathcal A$,
+więc $\mathcal A=\B(\R)$ i $\mu=\nu$.
+\end{proof}
+
+Na przedziałach półotwartych wartość rozkładu można odczytać bezpośrednio
+z dystrybuanty. Dla $a<b$ zachodzi
+\[
+  \mu((a,b])=\mu((-\infty,b])-\mu((-\infty,a])=F_\mu(b)-F_\mu(a).
+\]
+
+\begin{fakt}[Dystrybuanta rozkładu absolutnie ciągłego]
+\label{fakt:dystrybuanta-z-gestosci}
+Rozkład zmiennej losowej $X$ jest absolutnie ciągły wtedy i tylko wtedy,
+gdy istnieje nieujemna funkcja borelowska $g\colon\R\to[0,\infty)$
+taka, że
+\begin{equation}
+  F_X(t)=\int_{-\infty}^t g(x)\,dx
+  \qquad\text{dla każdego }t\in\R.
+  \label{eq:dystrybuanta-calka-gestosci}
+\end{equation}
+Wówczas $g$ jest gęstością tego rozkładu.
+\end{fakt}
+
+\begin{proof}
+Jeżeli $\mu_X$ jest absolutnie ciągły i ma gęstość $g$, to
+\[
+  F_X(t)=\mu_X((-\infty,t])=\int_{-\infty}^{t}g(x)\,dx
+\]
+na mocy definicji~\ref{def:rozklad-absolutnie-ciagly}.
+
+Odwrotnie, załóżmy, że $g$ spełnia~\eqref{eq:dystrybuanta-calka-gestosci}.
+Z nieujemności $g$ i ciągłości całki od dołu otrzymujemy
+\[
+  \int_{\R}g(x)\,dx
+    =\lim_{n\to\infty}\int_{-\infty}^n g(x)\,dx
+    =\lim_{n\to\infty}F_X(n)=1.
+\]
+Wobec tego $\nu(A)=\int_A g(x)\,dx$, $A\in\B(\R)$,
+definiuje rozkład absolutnie ciągły. Jego dystrybuanta spełnia
+$F_\nu(t)=\int_{-\infty}^t g(x)\,dx=F_X(t)$ dla każdego $t\in\R$.
+Z twierdzenia~\ref{tw:dystrybuanta-wyznacza-rozklad} wynika $\nu=\mu_X$,
+a więc $\mu_X$ ma gęstość $g$.
+\end{proof}

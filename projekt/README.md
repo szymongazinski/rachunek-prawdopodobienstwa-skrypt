@@ -6,7 +6,7 @@ i **[z oznaczeniami wykładów](../Rachunek-prawdopodobienstwa-wyklady.pdf)** s�
 w katalogu przedmiotu, obok folderu `projekt/`. Ten sam układ obowiązuje
 lokalnie i w głównym katalogu repozytorium na GitHubie.
 
-Repozytorium: [skrypt-rp](https://github.com/szymongazinski/skrypt-rp).
+Repozytorium: [rachunek-prawdopodobienstwa-skrypt](https://github.com/szymongazinski/rachunek-prawdopodobienstwa-skrypt).
 Bieżące pliki zawierają aktualną realistyczną okładkę. Dawne okładki
 z fotografią prowadzącego nie są częścią tego repozytorium ani jego historii.
 

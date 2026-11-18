@@ -81,7 +81,7 @@ Nie przenoś ponownie katalogu głównego repozytorium do folderu `projekt/`.
   że poprzednie okładki i ich fotografie nie będą dostępne w plikach ani historii.
   Nie zmieniaj widoczności na publiczną, dopóki ten warunek nie jest sprawdzony.
   Repozytorium na GitHubie:
-  `https://github.com/szymongazinski/skrypt-rp`.
+  `https://github.com/szymongazinski/rachunek-prawdopodobienstwa-skrypt`.
 - Stosuj wyłącznie oficjalne, krótkie komunikaty commitów w formie bezosobowej:
   `dodano wykład N` przy dodaniu wykładu, a `Poprawki stylistyczne` przy
   pozostałych zmianach. Nie dodawaj rozwinięcia ani szczegółowych opisów.
